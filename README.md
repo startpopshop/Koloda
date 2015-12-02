@@ -160,6 +160,10 @@ This method is fired on koloda's layout and after swiping. If you return YES fro
     func kolodaBackgroundCardAnimation(koloda: KolodaView) -> POPPropertyAnimation?
 ```
 Return a pop frame animation to be applied to backround cards after swipe. This method is fired on swipping, when any cards are displayed. If you don't return frame animation, or return nil, the koloda will apply default animation.
+```swift
+    func kolodaSwipeThresholdRatio(koloda: KolodaView) -> CGFloat
+```
+Return the percentage of the card's width that is used as the swipe threshold. The default value of this method is half (0.5) of the card's width.
 
 
 Release Notes

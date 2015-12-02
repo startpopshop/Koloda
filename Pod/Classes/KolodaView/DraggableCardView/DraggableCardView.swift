@@ -15,6 +15,7 @@ protocol DraggableCardDelegate: class {
     func cardSwippedInDirection(card: DraggableCardView, direction: SwipeResultDirection)
     func cardWasReset(card: DraggableCardView)
     func cardTapped(card: DraggableCardView)
+    func actionMarginRatio() -> CGFloat?
     
 }
 
@@ -65,7 +66,8 @@ public class DraggableCardView: UIView {
     
     override public var frame: CGRect {
         didSet {
-            actionMargin = frame.size.width / 2.0
+            let actionMarginMultiplier: CGFloat = delegate?.actionMarginRatio() ?? 0.5
+            actionMargin = frame.size.width * fabs(actionMarginMultiplier)
         }
     }
     
